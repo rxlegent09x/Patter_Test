@@ -8,7 +8,7 @@ int main(){
 
 int size_arr = (sizeof(arr)/sizeof(int))/2;
 
-cout<<size_arr<<endl;
+//cout<<size_arr<<endl;
 int temp=0;
 int i_j = 10;
 
