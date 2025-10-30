@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writting Letter * Tool</title>
+</head>
+
+<style>
+body{
+    background-color: rgb(225, 225, 225);
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+
+}
+
+
+#box{
+    height: 30rem;
+    width: 30rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+#box section{
+    width: 2.85rem;
+    height: 2.85rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+
+</style>
+
+
+<body>
+    
+
+<section id="box">
+
+
+
+</section>
+
+<!-- <p>DATA : </p><span>[</span><span id="data"></span><span>]</span> -->
+<section><button onclick="reset()">Reset</button>
+
+<button onclick="copy()">Copy</button>
+<button onclick="forcode()">Copy For Code</button></section>
+
+<script>
+
+
+const box = document.getElementById("box");
+// const data = document.getElementById("data");
+let grid_let = [];
+for(let i=0; i<10; i++){
+    for(let j=0; j<10; j++){
+         box.innerHTML+=`<section onclick="color(this,${i},${j})">
+        
+            </section>`; 
+           
+    }
+     
+}
+
+
+const reset = ()=>{
+     box.innerHTML="";
+    for(let i=0; i<10; i++){
+        for(let j=0; j<10; j++){
+            box.innerHTML+=`<section onclick="color(this,${i},${j})">
+         
+            </section>`; 
+        }
+    }
+    // data.innerHTML="";
+    grid_let=[];
+    
+}
+
+const color = (x,i,j)=>{
+x.style.backgroundColor="black";
+x.style.color="white";
+// data.innerHTML+=`[${i},${j}],`;
+grid_let.push([i,j]); 
+}
+
+
+const copy=()=>{
+
+    navigator.clipboard.writeText(JSON.stringify(grid_let));
+    alert("the text has been copied !")
+}
+
+const forcode=()=>{
+    
+   let temmp = JSON.stringify(grid_let);
+   temmp = temmp.replaceAll("[","{");
+   temmp = temmp.replaceAll("]","}");
+       navigator.clipboard.writeText(temmp);
+
+    alert("the text has been copied !")
+   
+   
+}
+
+
+
+
+
+    </script>
+</body>
+
+
+
+
+
+
+</html>
