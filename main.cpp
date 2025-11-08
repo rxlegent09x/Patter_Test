@@ -21,13 +21,16 @@ int x_arr[grid_size];
 
 fill_with_Value(x_arr,0,grid_size);
 
+string zero="  ";
+string one = "* ";
+
 for(int i=0; i<size_arr; i++){
     x_arr[(arr[i][0]*10)+arr[i][1]]=1;
 }
 cout<<endl;
 
 for(int i=0; i<grid_size; i++){
-    cout<<(x_arr[i]==0?"  ":"* ");
+    cout<<(x_arr[i]==0?zero:one);
     if((i+1)%10==0) cout<<endl;
 }
     return 0;
